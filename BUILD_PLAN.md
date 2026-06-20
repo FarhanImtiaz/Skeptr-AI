@@ -50,7 +50,7 @@ solo 6-hour build.
   /orchestrator.ts            transcribeImage() (OCR) + extractJobEntities() + runOrchestrator() (DeepSeek JSON)
   /fallback-cache.ts          demo safety net (pre-baked + generic fallback)
 /components
-  /ProgressSteps.tsx          four sequential "agent" steps during the call
+  /ProgressSteps.tsx          four sequential progress steps during the call
   /VerdictCard.tsx            score + risk badge + sourced (clickable) flags/signals + recommendation
 /data/fallback-results.json   real cached demos (legit offer / scam message)
 ```
@@ -77,8 +77,9 @@ No database. No auth. No persistence. In-memory, request-scoped only.
 7. **On any failure or >~35s timeout → serve cached fallback silently** (§7). The live demo must
    never show a raw error or an infinite spinner.
 
-The "multi-agent" feel (research → reputation → risk → verdict) is carried by the UI progress steps;
-under the hood it's one orchestrator + one LLM call. Be straightforward about this if asked.
+Architecture note: this is **not** a multi-agent system. It's one orchestrator that gathers evidence
+(several Anakin calls) and makes a single LLM call. The UI progress steps are just sequential status
+labels for that one pipeline — be straightforward about this if asked.
 
 ## 4. Orchestrator Prompt (core artifact)
 

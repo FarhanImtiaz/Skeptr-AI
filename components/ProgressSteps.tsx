@@ -1,6 +1,6 @@
 "use client";
 
-// Progress animation (BUILD_PLAN.md §6). Sequential labeled "agent" steps shown
+// Progress animation (BUILD_PLAN.md §6). Sequential labeled progress steps shown
 // while the real API call runs underneath. Narrative, not literal accuracy.
 
 import { useEffect, useState } from "react";
