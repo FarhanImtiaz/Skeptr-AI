@@ -8,7 +8,7 @@
 ## 0. Constraints (read before doing anything)
 
 - **Format:** Anakin Blitz, 6-hour virtual hackathon, built around the **Wire API + Anakin Universal
-  Scraper**. LLM provider is **DeepSeek** (`deepseek-chat`); screenshot OCR is local via tesseract.js.
+  Scraper**. LLM provider is **DeepSeek** (`deepseek-chat`); screenshot OCR runs in the browser via tesseract.js.
 - **Team:** Solo.
 - **Goal:** A working, demoable product by hour 6. Optimize for: **reliability of the live demo >
   breadth of features > architectural purity.**
@@ -59,8 +59,8 @@ No database. No auth. No persistence. In-memory, request-scoped only.
 
 ## 3. Pipeline (what happens on submit)
 
-1. `POST /api/investigate { input?, image? }` — a posting URL, pasted offer/message text, **or** a
-   screenshot (data URL). If an image is sent, `transcribeImage()` (local tesseract.js OCR, with jimp dark-mode preprocessing) reads it to text first.
+1. `POST /api/investigate { input }`. Screenshots are OCR'd **in the browser** (tesseract.js + canvas
+   dark-mode preprocessing) and submitted as text, so the API itself is text-only — and OCR works on Vercel.
 2. **Scope guard + hints** (`extractJobEntities()`, one cheap DeepSeek call **before any paid Anakin
    call**): classifies whether the input is plausibly job-related (permissive — off-topic input gets a
    friendly redirect, zero Anakin spend) and extracts company/role/recruiter/domain + a search query.
@@ -130,7 +130,7 @@ Flat, request-scoped array, built fresh per investigation, passed straight into 
 ## 6. UI Requirements
 
 - **Single input** (textarea): paste a job-posting URL **or** the offer / recruiter message, **or
-  upload a screenshot** (e.g. a WhatsApp chat) — OCR'd to text automatically. No entity toggle. Two
+  upload a screenshot** (WhatsApp, LinkedIn, Telegram, email) — OCR'd in your browser automatically. No entity toggle. Two
   example chips (✅ legit offer / 🚩 suspicious message) load cached demos instantly. Off-topic input
   gets a friendly "outside what Skeptr checks" notice instead of a verdict.
 - **Progress animation** (not a blank spinner): "Checking if this company is real…" →
@@ -198,5 +198,5 @@ live call errors/times out, serve the cached result silently. The live demo neve
   `[scraper_error] 'NoneType' object has no attribute 'get'`. This is a client mistake, not an Anakin
   outage.
 - **DeepSeek** (`deepseek-chat`): JSON mode (`response_format: { type: "json_object" }`) keeps output
-  clean. Screenshot OCR is **local** (tesseract.js + jimp dark-mode preprocessing) — DeepSeek has no
-  vision input.
+  clean. Screenshot OCR runs **in the browser** (tesseract.js + canvas preprocessing) — works on Vercel,
+  and DeepSeek has no vision input.

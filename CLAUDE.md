@@ -17,7 +17,7 @@
 ## What it does
 
 A job seeker pastes a **job-posting URL**, an **offer / recruiter message**, or **a screenshot** of
-the chat (OCR'd locally via tesseract.js). Skeptr gathers web evidence via the **Anakin / Wire API**, runs
+the chat (WhatsApp, LinkedIn, Telegram, email — OCR'd in your browser via tesseract.js). Skeptr gathers web evidence via the **Anakin / Wire API**, runs
 one evidence-grounded **DeepSeek** pass, and returns a **Trust Score (0–100)**, risk level, confidence,
 red flags, positive signals, sentiment, and an **"engage vs. walk away"** recommendation. **Every
 flag/signal is backed by a cited source** — the core differentiator, never cut it. One input mode, no
@@ -31,7 +31,7 @@ app/layout.tsx                metadata (title/description)
 app/api/investigate/route.ts  POST { input }: URL-vs-text → hints → Wire evidence → DeepSeek verdict → fallback
 lib/types.ts                  EvidenceItem, JobHints, Verdict, request/response contracts
 lib/wire.ts                   Anakin wrappers: search, url-scraper (async), wire/task actions
-lib/orchestrator.ts           transcribeImage() (local tesseract.js OCR) + extractJobEntities() (gate+hints) + runOrchestrator()
+lib/orchestrator.ts           extractJobEntities() (gate+hints) + runOrchestrator() — screenshot OCR runs in the browser (app/check)
 lib/fallback-cache.ts         demo safety net (pre-baked + generic fallback)
 components/ProgressSteps.tsx, components/VerdictCard.tsx
 data/fallback-results.json    two real cached demos (legit offer / scam message)
@@ -41,8 +41,8 @@ No database, no auth, no persistence. Request-scoped only.
 
 ## Pipeline
 
-1. `POST /api/investigate { input?, image? }`. If `image` (a screenshot data URL) is sent,
-   `transcribeImage()` (local tesseract.js OCR, with jimp dark-mode preprocessing) reads it to text first.
+1. Screenshots are OCR'd **in the browser** (tesseract.js + canvas dark-mode preprocessing) and submitted
+   as text, so the API itself is text-only: `POST /api/investigate { input }`.
 2. **Scope guard + hints** via `extractJobEntities()` (one cheap DeepSeek call before any paid Anakin
    call): is it job-related? (permissive; off-topic → `{ off_topic, message }`, zero Anakin spend) +
    extract company/role/recruiter/domain. URL domain back-filled from hostname. Fails **open**.
@@ -90,5 +90,5 @@ urgency/pressure.
 
 - **Anakin credits are scarce (~300 total).** Reserve live calls for demo fallbacks + the live demo;
   test everything else on the zero-credit cached path. See memory `conserve-anakin-credits`.
-- LLM = **DeepSeek** (`deepseek-chat`, `DEEPSEEK_API_KEY`); JSON mode (`response_format`) for clean output. Screenshot OCR is **local** via tesseract.js (+ jimp dark-mode preprocessing) — no vision API.
+- LLM = **DeepSeek** (`deepseek-chat`, `DEEPSEEK_API_KEY`); JSON mode (`response_format`) for clean output. Screenshot OCR runs **in the browser** via tesseract.js (+ canvas preprocessing) — no vision API, works on Vercel.
 - Keys in `.env.local` (gitignored, never committed).

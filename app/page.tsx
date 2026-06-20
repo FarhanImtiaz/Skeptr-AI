@@ -207,7 +207,7 @@ const FEATURES = [
   { icon: "🌐", title: "Real web evidence", body: "Live search, page scraping, and domain-age checks — not just a language model’s guess." },
   { icon: "⚡", title: "Seconds, not hours", body: "What would take you 20 minutes of digging, done while you read the result." },
   { icon: "🚩", title: "Catches the classics", body: "Upfront fees, off-platform recruiters, unrealistic pay, unverifiable companies." },
-  { icon: "📸", title: "Paste, link, or screenshot", body: "A posting URL, a copy-pasted message, or a screenshot of a WhatsApp/Telegram chat — read on-device with OCR, no third-party vision service." },
+  { icon: "📸", title: "Paste, link, or screenshot", body: "A posting URL, a copy-pasted message, or a screenshot of a WhatsApp, LinkedIn, Telegram, or email chat — read right in your browser, no third-party vision service." },
   { icon: "🧭", title: "Clear next step", body: "Not just a number — a plain “engage or walk away” recommendation." },
 ];
 

@@ -3,7 +3,7 @@
 **Know before you reply.**
 
 Skeptr helps job seekers tell real job offers apart from scams. Paste a **job posting URL**, a
-**recruiter message / offer**, or **a screenshot of the chat** (e.g. WhatsApp), and Skeptr gathers
+**recruiter message / offer**, or **a screenshot of the chat** (WhatsApp, LinkedIn, Telegram, email), and Skeptr gathers
 web evidence, reasons over it, and returns a trust score with a risk verdict — **every red flag and
 positive signal backed by a cited source**.
 
@@ -11,8 +11,8 @@ Built for the Anakin Blitz hackathon on the **Anakin / Wire API** + **DeepSeek**
 
 ## How it works
 
-1. You paste a posting URL / offer text, or upload a **screenshot** — which is OCR'd locally (tesseract.js) into
-   text first.
+1. You paste a posting URL / offer text, or upload a **screenshot** (WhatsApp, LinkedIn, Telegram, email) —
+   which is OCR'd **right in your browser** (tesseract.js) into text first, so the image never leaves your device.
 2. A cheap DeepSeek **scope guard** checks the input is actually job-related (off-topic input gets a
    friendly redirect, no API spend) and extracts context (company, role, recruiter, domain).
 3. It gathers evidence via Anakin: **Search API** (scam reports, news, reviews), **URL Scraper**

@@ -217,7 +217,7 @@ export default function CheckPage() {
                     onClick={() => fileRef.current?.click()}
                     className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium text-zinc-500 transition-colors hover:text-blue-600 dark:text-zinc-400"
                   >
-                    <span>📎</span> Upload a screenshot (e.g. a WhatsApp chat)
+                    <span>📎</span> Upload a screenshot — WhatsApp, LinkedIn, Telegram, email…
                   </button>
                 )}
               </div>
