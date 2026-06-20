@@ -1,0 +1,125 @@
+{
+  "_comment": "Skeptr demo safety net. Keys are normalizeKey(input). Real pipeline output captured pre-demo.",
+  "hi, i'm a recruiter at shopify. we're hiring a senior backend developer (remote, full-time). the role is posted on our official careers site at https://www.shopify.com/careers and all interviews go through our standard process — we never charge any fees. reply here or apply online if you're interested.": {
+    "verdict": {
+      "trust_score": 85,
+      "confidence": "high",
+      "risk_level": "Safe",
+      "summary": "This job offer appears legitimate as it directs to Shopify's official careers page and explicitly states no fees are charged, aligning with Shopify's official guidance.",
+      "red_flags": [],
+      "positive_signals": [
+        {
+          "claim": "The company Shopify is real and has an established web presence (domain registered in 2005).",
+          "source": "www.whois.com/whois/shopify.com"
+        },
+        {
+          "claim": "The offer directs to the official Shopify careers site (shopify.com/careers) for application.",
+          "source": "Offer / posting / recruiter message under investigation"
+        },
+        {
+          "claim": "The message explicitly states that Shopify never charges any fees, which is consistent with official Shopify scam warnings.",
+          "source": "Offer / posting / recruiter message under investigation"
+        },
+        {
+          "claim": "Shopify's official career page is linked on their main website.",
+          "source": "https://shopify.com"
+        }
+      ],
+      "sentiment_summary": "Shopify community forums contain numerous reports of job scams, particularly those asking for upfront payments or offering part-time tasks not listed on the official careers site. Official Shopify representatives consistently advise that all genuine job postings are on their careers website and they never ask for deposits.",
+      "recommendation": "You can engage with this offer by applying directly through the official Shopify careers website as suggested, but remain vigilant for any requests for payment or personal information outside of a standard hiring process."
+    },
+    "served_from": "fallback",
+    "evidence_count": 7
+  },
+  "congratulations! you've been shortlisted for a remote data entry position ($35/hour, only 2 hrs/day). no interview needed! to get started, purchase your onboarding training kit ($150) via the link below, and send a photo of your id and your bank account details to confirm enrollment. message hr manager linda on whatsapp +1 (332) 555-0188 or recruiter.linda88@gmail.com to begin today. limited slots remaining!": {
+    "verdict": {
+      "trust_score": 0,
+      "confidence": "high",
+      "risk_level": "Dangerous",
+      "summary": "This is a highly suspicious job offer with multiple classic scam red flags, including requests for upfront payment, personal information too early, and an unrealistic salary for a data entry role.",
+      "red_flags": [
+        {
+          "claim": "The offer promises $35/hour for a Remote Data Entry position, which is an unrealistic income promise for basic data entry and significantly above industry standards.",
+          "source": "https://www.youtube.com/watch?v=_SmV5WJ5YLY"
+        },
+        {
+          "claim": "The offer states 'No interview needed!', which is a red flag for immediate hiring without assessment, as real data entry jobs test skills before hiring.",
+          "source": "https://www.youtube.com/watch?v=_SmV5WJ5YLY"
+        },
+        {
+          "claim": "The offer asks to 'purchase your onboarding training kit ($150)', which is an upfront payment scheme; real employers never require money for training or equipment.",
+          "source": "https://www.youtube.com/watch?v=_SmV5WJ5YLY"
+        },
+        {
+          "claim": "The offer asks to 'send a photo of your ID and your bank account details to confirm enrollment' too early in the process, which is a request for sensitive financial details upfront from an unverified source.",
+          "source": "https://www.linkedin.com/top-content/career/job-posting-verification-process/how-to-verify-legitimate-remote-data-entry-jobs/"
+        },
+        {
+          "claim": "The recruiter uses a personal Gmail address (recruiter.linda88@gmail.com) and WhatsApp (+1 (332) 555-0188) for communication, which are unprofessional channels and a major warning sign of scams.",
+          "source": "https://www.linkedin.com/top-content/career/job-posting-verification-process/how-to-verify-legitimate-remote-data-entry-jobs/"
+        },
+        {
+          "claim": "The offer uses pressure tactics like 'Limited slots remaining!' and 'to begin TODAY', which are emotional triggers used by fake recruiters.",
+          "source": "https://www.linkedin.com/top-content/career/job-posting-verification-process/how-to-verify-legitimate-remote-data-entry-jobs/"
+        },
+        {
+          "claim": "The job description for 'Remote Data Entry' is vague, lacking specific tasks, responsibilities, or software mentioned.",
+          "source": "https://www.linkedin.com/top-content/career/job-posting-verification-process/how-to-verify-legitimate-remote-data-entry-jobs/"
+        },
+        {
+          "claim": "The offer claims 'You've been shortlisted' for a job the recipient likely didn't apply for, which is a common scam tactic.",
+          "source": "https://www.linkedin.com/top-content/career/job-posting-verification-process/how-to-verify-legitimate-remote-data-entry-jobs/"
+        },
+        {
+          "claim": "Remote data entry jobs with high pay are consistently identified as scams in online forums.",
+          "source": "https://www.reddit.com/r/Scams/comments/1dehjii/remote_data_entry_job_is_this_a_scam/"
+        },
+        {
+          "claim": "The offer of $35 an hour for part-time data entry with no specific skills required sounds like a total scam.",
+          "source": "https://www.reddit.com/r/RemoteJobs/comments/1kjkanj/is_this_data_entry_job_email_legit/"
+        }
+      ],
+      "positive_signals": [],
+      "sentiment_summary": "Online forums and expert advice consistently identify remote data entry jobs with high pay, upfront fees, and informal communication channels as scams, with many users reporting similar experiences as fraudulent.",
+      "recommendation": "Walk away from this offer immediately. Do not engage further, provide any personal information, or make any payments."
+    },
+    "served_from": "fallback",
+    "evidence_count": 5
+  },
+  "img:a6e176ea85f1fcacd1a202f8": {
+    "verdict": {
+      "trust_score": 85,
+      "confidence": "high",
+      "risk_level": "Safe",
+      "summary": "The recruiter directs you to Amazon's official careers site and does not ask for payment or personal information, which aligns with Amazon's legitimate hiring process.",
+      "red_flags": [
+        {
+          "claim": "Recruiter contacted via LinkedIn, not through official Amazon channels",
+          "source": "The message you provided"
+        }
+      ],
+      "positive_signals": [
+        {
+          "claim": "Recruiter directs to official Amazon jobs site (amazon.jobs)",
+          "source": "The message you provided"
+        },
+        {
+          "claim": "No request for payment or personal information",
+          "source": "The message you provided"
+        },
+        {
+          "claim": "Amazon's fraud alert confirms no fees are charged at any stage",
+          "source": "https://amazon.jobs/content/en/how-we-hire/fraud-alert-india"
+        },
+        {
+          "claim": "Job posting URL uses amazon.jobs domain",
+          "source": "The message you provided"
+        }
+      ],
+      "sentiment_summary": "Amazon's official fraud alert warns about scams, but this interaction lacks scam indicators. Forum posts mention fake employees and interview scams, but they are not directly related to this offer.",
+      "recommendation": "Proceed with applying through the official Amazon careers site, but remain vigilant for any subsequent requests for payment or personal information."
+    },
+    "served_from": "fallback",
+    "evidence_count": 6
+  }
+}
