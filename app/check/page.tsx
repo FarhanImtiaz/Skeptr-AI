@@ -29,6 +29,40 @@ type View = "idle" | "loading" | "result";
 
 const MAX_IMAGE_BYTES = 6 * 1024 * 1024; // 6MB
 
+// OCR a screenshot in the BROWSER (works anywhere, incl. Vercel — no serverless
+// worker/filesystem limits). Preprocess on a canvas (grayscale, auto-invert dark
+// mode, contrast, upscale) then run tesseract.js, loaded on demand.
+async function ocrInBrowser(dataUrl: string): Promise<string> {
+  const img = new Image();
+  img.src = dataUrl;
+  await img.decode();
+
+  const scale = img.naturalWidth < 1000 ? 2 : 1;
+  const canvas = document.createElement("canvas");
+  canvas.width = img.naturalWidth * scale;
+  canvas.height = img.naturalHeight * scale;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return "";
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+  const pix = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const d = pix.data;
+  let sum = 0;
+  for (let i = 0; i < d.length; i += 4) sum += (d[i] + d[i + 1] + d[i + 2]) / 3;
+  const dark = sum / (d.length / 4) < 110;
+  for (let i = 0; i < d.length; i += 4) {
+    let g = (d[i] + d[i + 1] + d[i + 2]) / 3;
+    if (dark) g = 255 - g; // dark mode → dark text on light bg
+    g = Math.min(255, Math.max(0, (g - 128) * 1.3 + 128)); // contrast
+    d[i] = d[i + 1] = d[i + 2] = g;
+  }
+  ctx.putImageData(pix, 0, 0);
+
+  const Tesseract = (await import("tesseract.js")).default;
+  const { data } = await Tesseract.recognize(canvas, "eng");
+  return (data.text ?? "").replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+}
+
 export default function CheckPage() {
   const [input, setInput] = useState("");
   const [image, setImage] = useState<string | null>(null); // data URL
@@ -73,12 +107,24 @@ export default function CheckPage() {
 
     const started = Date.now();
     try {
+      // OCR screenshots in the browser, then send plain text to the server.
+      let text = input.trim();
+      if (image) {
+        const transcript = await ocrInBrowser(image);
+        if (!transcript && !text) {
+          setError(
+            "Couldn't read any text from that screenshot. Try a clearer image, or paste the message text.",
+          );
+          setView("idle");
+          return;
+        }
+        text = text ? `${text}\n\n${transcript}` : transcript;
+      }
+
       const res = await fetch("/api/investigate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(
-          image ? { input: input.trim(), image } : { input: input.trim() },
-        ),
+        body: JSON.stringify({ input: text }),
       });
       const data = (await res.json()) as InvestigateResponse | { error?: string };
       const elapsed = Date.now() - started;
