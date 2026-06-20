@@ -209,7 +209,8 @@ export async function transcribeImage(dataUrl: string): Promise<string> {
   if (!m) throw new Error("invalid image data URL");
   const prepared = await preprocessForOcr(Buffer.from(m[2], "base64"));
 
-  const worker = await createWorker("eng");
+  // cachePath: /tmp is the only writable dir on serverless (Vercel/Lambda).
+  const worker = await createWorker("eng", 1, { cachePath: "/tmp" });
   try {
     const { data } = await worker.recognize(prepared);
     return (data.text ?? "").replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
