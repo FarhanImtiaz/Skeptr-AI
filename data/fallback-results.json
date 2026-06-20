@@ -31,7 +31,7 @@
     "served_from": "fallback",
     "evidence_count": 7
   },
-  "congratulations! you've been shortlisted for a remote data entry position ($35/hour, only 2 hrs/day). no interview needed! to get started, purchase your onboarding training kit ($150) via the link below, and send a photo of your id and your bank account details to confirm enrollment. message hr manager linda on whatsapp +1 (332) 555-0188 or recruiter.linda88@gmail.com to begin today. limited slots remaining!": {
+  "congratulations! you've been shortlisted for a remote data entry position ($35/hour, only 2 hrs/day). no interview needed! to get started, purchase your onboarding training kit ($150) via the link below, and send a photo of your id and your bank account details to confirm enrollment. message hr manager linda on whatsapp +1 (332) 555-0188 or linda.hr@quickhire-remote.com to begin today. limited slots remaining!": {
     "verdict": {
       "trust_score": 0,
       "confidence": "high",
@@ -55,7 +55,7 @@
           "source": "https://www.linkedin.com/top-content/career/job-posting-verification-process/how-to-verify-legitimate-remote-data-entry-jobs/"
         },
         {
-          "claim": "The recruiter uses a personal Gmail address (recruiter.linda88@gmail.com) and WhatsApp (+1 (332) 555-0188) for communication, which are unprofessional channels and a major warning sign of scams.",
+          "claim": "The recruiter uses an unverified email on a generic, non-company domain (linda.hr@quickhire-remote.com) and WhatsApp (+1 (332) 555-0188) for communication, which are unprofessional channels and a major warning sign of scams.",
           "source": "https://www.linkedin.com/top-content/career/job-posting-verification-process/how-to-verify-legitimate-remote-data-entry-jobs/"
         },
         {
@@ -85,41 +85,5 @@
     },
     "served_from": "fallback",
     "evidence_count": 5
-  },
-  "img:a6e176ea85f1fcacd1a202f8": {
-    "verdict": {
-      "trust_score": 85,
-      "confidence": "high",
-      "risk_level": "Safe",
-      "summary": "The recruiter directs you to Amazon's official careers site and does not ask for payment or personal information, which aligns with Amazon's legitimate hiring process.",
-      "red_flags": [
-        {
-          "claim": "Recruiter contacted via LinkedIn, not through official Amazon channels",
-          "source": "The message you provided"
-        }
-      ],
-      "positive_signals": [
-        {
-          "claim": "Recruiter directs to official Amazon jobs site (amazon.jobs)",
-          "source": "The message you provided"
-        },
-        {
-          "claim": "No request for payment or personal information",
-          "source": "The message you provided"
-        },
-        {
-          "claim": "Amazon's fraud alert confirms no fees are charged at any stage",
-          "source": "https://amazon.jobs/content/en/how-we-hire/fraud-alert-india"
-        },
-        {
-          "claim": "Job posting URL uses amazon.jobs domain",
-          "source": "The message you provided"
-        }
-      ],
-      "sentiment_summary": "Amazon's official fraud alert warns about scams, but this interaction lacks scam indicators. Forum posts mention fake employees and interview scams, but they are not directly related to this offer.",
-      "recommendation": "Proceed with applying through the official Amazon careers site, but remain vigilant for any subsequent requests for payment or personal information."
-    },
-    "served_from": "fallback",
-    "evidence_count": 6
   }
 }

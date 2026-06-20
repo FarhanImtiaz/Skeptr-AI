@@ -21,7 +21,7 @@ const EXAMPLES: { label: string; value: string }[] = [
   {
     label: "🚩 Suspicious message",
     value:
-      "CONGRATULATIONS! You've been shortlisted for a Remote Data Entry position ($35/hour, only 2 hrs/day). No interview needed! To get started, purchase your onboarding training kit ($150) via the link below, and send a photo of your ID and your bank account details to confirm enrollment. Message HR manager Linda on WhatsApp +1 (332) 555-0188 or recruiter.linda88@gmail.com to begin TODAY. Limited slots remaining!",
+      "CONGRATULATIONS! You've been shortlisted for a Remote Data Entry position ($35/hour, only 2 hrs/day). No interview needed! To get started, purchase your onboarding training kit ($150) via the link below, and send a photo of your ID and your bank account details to confirm enrollment. Message HR manager Linda on WhatsApp +1 (332) 555-0188 or linda.hr@quickhire-remote.com to begin TODAY. Limited slots remaining!",
   },
 ];
 
